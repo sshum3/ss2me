@@ -17,29 +17,20 @@
             font-family: "Raleway", sans-serif
         }
 
-        body,
-        html {
-            height: 100%;
+        .w3-quarter img {
+            margin-bottom: -6px;
+            cursor: pointer
         }
 
-        body {
-            background-color: black;
+        .w3-quarter img:hover {
+            opacity: 0.6;
+            transition: 0.3s
         }
 
-        .bg {
-            /* The image used */
-            background-image: url("404.svg");
-
-            /* Full height */
-            height: 80%;
-
-            /* Center and scale the image nicely */
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+        .w3-row-padding img {
+            margin-bottom: 12px
         }
     </style>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2P11CVNNNN"></script>
     <script>
@@ -51,14 +42,86 @@
     </script>
 </head>
 
-<body>
+<body class="w3-light-grey">
 
-    <div class="bg"></div>
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+        <span class="w3-left w3-padding">SS2.me</span>
+    </header>
 
-    <div class="w3-center">&nbsp;
-        <h1><a href="/" class="w3-white">&nbsp;Homepage&nbsp;</a></h1>
-        &nbsp;
+
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+        <!-- Photo grid -->
+        <div class="w3-row-padding">
+            <div class="w3-quarter">
+                <img src="collections/cat/CatA.svg" style="width:100%" onclick="onClick(this)" alt="A">
+                <img src="collections/cat/CatB.svg" style="width:100%" onclick="onClick(this)" alt="Bobbin">
+            </div>
+            <div class="w3-quarter">
+                <img src="collections/cat/CatC.svg" style="width:100%" onclick="onClick(this)" alt="C">
+                <img src="collections/cat/CatD.svg" style="width:100%" onclick="onClick(this)" alt="D">
+            </div>
+            <div class="w3-quarter">
+                <img src="collections/cat/CatE.svg" style="width:100%" onclick="onClick(this)" alt="E">
+                <img src="collections/cat/CatF.svg" style="width:100%" onclick="onClick(this)" alt="F">
+            </div>
+            <div class="w3-quarter">
+                <img src="collections/cat/CatG.svg" style="width:100%" onclick="onClick(this)" alt="Gerry">
+                <img src="collections/cat/CatH.svg" style="width:100%" onclick="onClick(this)" alt="Harry">
+            </div>
+
+        </div>
+
+        <!-- Modal for full size images on click-->
+        <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+            <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                <p id="caption"></p>
+                <img id="img01" class="w3-image">
+            </div>
+        </div>
+
+        <!-- About section -->
+        <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+            <h4><b>About</b></h4>
+
+            <div class="w3-content w3-justify" style="max-width:600px">
+                <p></p>
+                <p>Hi! I'm Stuart and I love cats. These have been created using SVG Code!</p>
+                <p></p>
+                <hr class="w3-opacity">
+
+
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="w3-black w3-center w3-padding-24">Powered by <a
+                    href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                    class="w3-hover-opacity">w3.css</a></div>
+
+        </footer>
+        <!-- End page content -->
     </div>
+
+    <script>
+
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+    </script>
+
+
 </body>
 
 </html>
